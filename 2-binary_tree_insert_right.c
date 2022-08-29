@@ -4,7 +4,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_insert_right - créates a new node in right branch of binary tree
+ * binary_tree_insert_right - créates new node in right branch of binary tree
  *
  * @parent: parent of the new node
  * @value: value in new node
