@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * power2 - power2.
+ * @tree: pointer to the root node of the tree to measure the height.
+ *
+ * Return: return the result
+ */
 int power2(int n)
 {
 	int result = 1, i;
@@ -53,13 +59,18 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	}
 	return (0);
 }
-
+/**
+ * binary_tree_is_perfect - Measures if the tree is perfect.
+ * @tree: pointer to the root node of the tree to measure the height.
+ *
+ * Return: if tree is NULL, your function must return 0, else return height.
+ */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	int height_t = 0, i;
 	size_t node_count = 0;
 
-	if(!tree)
+	if (!tree)
 		return (0);
 
 	height_t = binary_tree_height(tree);
