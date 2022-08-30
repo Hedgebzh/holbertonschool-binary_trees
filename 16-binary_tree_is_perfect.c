@@ -4,9 +4,8 @@
 #include <string.h>
 
 /**
- * power2 - power2.
- * @tree: pointer to the root node of the tree to measure the height.
- *
+ * power2 - power2
+ * @n: integer parameter
  * Return: return the result
  */
 int power2(int n)
