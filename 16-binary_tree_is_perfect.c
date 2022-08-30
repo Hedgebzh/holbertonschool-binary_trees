@@ -7,7 +7,7 @@ int power2(int n)
 {
 	int result = 1, i;
 
-	for (i = 0; i <= n; i++)
+	for (i = 0; i < n; i++)
 	{
 		result *= 2;
 	}
