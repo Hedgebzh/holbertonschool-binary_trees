@@ -35,7 +35,7 @@ bst_t *bst_remove(bst_t *root, int value)
 	if (!node)
 		return (NULL);
 	successor = node->right;
-	if (!successor && node->left)
+	if (!successor)
 	{
 		if (node->parent && node->parent->left == node)
 			node->parent->left = node->left;
@@ -43,11 +43,8 @@ bst_t *bst_remove(bst_t *root, int value)
 			node->parent->right = node->left;
 		else
 			root = node->left;
-		node->left->parent = node->parent;
-	}
-	if (!successor)
-	{
-		successor = node->left;
+		if (node->left)
+			node->left->parent = node->parent;
 		free(node);
 		return (root);
 	}
