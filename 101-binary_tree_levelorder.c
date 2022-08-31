@@ -29,23 +29,22 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	const binary_tree_t *node_array[10000];
 
 	/*fill array with pointer to the nodes in corect order*/
-	if (tree && func)
+	if (!tree || !func)
+	return;
+	node_array[0] = tree;
+	while (child < tree_size)
 	{
-		node_array[0] = tree;
-		while (child < tree_size)
+		if (node_array[parent]->left)
 		{
-			if (node_array[parent]->left)
-			{
-				node_array[child] = node_array[parent]->left;
-				child++;
-			}
-			if (node_array[parent]->right)
-			{
-				node_array[child] = node_array[parent]->right;
-				child++;
-			}
-			parent++;
+			node_array[child] = node_array[parent]->left;
+			child++;
 		}
+		if (node_array[parent]->right)
+		{
+			node_array[child] = node_array[parent]->right;
+			child++;
+		}
+		parent++;
 	}
 	/*execute every node*/
 	for (i = 0; i < tree_size; i++)
