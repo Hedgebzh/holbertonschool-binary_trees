@@ -9,7 +9,7 @@
  * @value: value to find
  * Return: pointer to node if found NULL othertwise
  */
-bst_t *bst_search(const bst_t *tree, int value)
+bst_t *bst_search(bst_t *tree, int value)
 {
 	if (!tree)
 		return (NULL);
