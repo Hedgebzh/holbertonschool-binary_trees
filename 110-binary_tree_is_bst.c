@@ -25,7 +25,8 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 
 int is_bst_minmax(const binary_tree_t *tree, int min, int max)
 {
-	if (tree->n < min || tree->n > max)
+	printf("%d, %d\n", min, max);
+	if (tree->n <= min || tree->n >= max)
 		return (0);
 	if (binary_tree_is_leaf(tree))
 		return (1);
@@ -33,7 +34,7 @@ int is_bst_minmax(const binary_tree_t *tree, int min, int max)
 		return (is_bst_minmax(tree->right, ISMIN(min, tree->n), max));
 	if (!tree->right)
 		return (is_bst_minmax(tree->left, min, ISMAX(max, tree->n)));
-	if ((tree->left->n > tree->n) || (tree->right->n < tree->n))
+	if ((tree->left->n >= tree->n) || (tree->right->n <= tree->n))
 		return (0);
 	return (is_bst_minmax(tree->left, min, ISMAX(max, tree->n))
 	* is_bst_minmax(tree->right, ISMIN(min, tree->n), max));
