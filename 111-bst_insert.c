@@ -78,5 +78,5 @@ bst_t *bst_insert(bst_t **tree, int value)
 			return (binary_tree_insert_left(*tree, value));
 		return (bst_insert(&((*tree)->left), value));
 	}
-	return (NULL);
+	return (*tree);
 }
