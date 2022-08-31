@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 /**
  * binary_tree_is_leaf - checks if node is a leaf
  *
@@ -14,6 +15,31 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 }
 
 /**
+ * is_bst_minmax - fucntion used by binary_tree_is_bst keeps track of min/max
+ *
+ * @tree: tree to check
+ * @max: max valu it can have
+ * @min: min valu it can have
+ * Return: 1 if true or 0
+ */
+
+int is_bst_minmax(const binary_tree_t *tree, int min, int max)
+{
+	if (tree->n < min || tree->n > max)
+		return (0);
+	if (binary_tree_is_leaf(tree))
+		return (1);
+	if (!tree->left)
+		return (is_bst_minmax(tree->right, MAX(min, tree->n), max));
+	if (!tree->right)
+		return (is_bst_minmax(tree->left, min, MIN(max, tree->n)));
+	if ((tree->left->n > tree->n) || (tree->right->n < tree->n))
+		return (0);
+	return (is_bst_minmax(tree->left, min, MIN(max, tree->n))
+	* is_bst_minmax(tree->right, MAX(min, tree->n), max));
+}
+
+/**
  * binary_tree_is_bst - checks if tree is binary search tree
  *
  * @tree: tree to check
@@ -23,13 +49,5 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	if (binary_tree_is_leaf(tree))
-		return (1);
-	if (!tree->left)
-		return (binary_tree_is_bst(tree->right));
-	if (!tree->right)
-		return (binary_tree_is_bst(tree->left));
-	if ((tree->left->n > tree->n) || (tree->right->n < tree->n))
-		return (0);
-	return (binary_tree_is_bst(tree->left) * binary_tree_is_bst(tree->right));
+	return (is_bst_minmax(tree, INT_MIN, INT_MAX));
 }
