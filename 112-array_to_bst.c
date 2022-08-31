@@ -25,7 +25,7 @@ void binary_tree_delete(binary_tree_t *tree)
 bst_t *array_to_bst(int *array, size_t size)
 {
 	size_t i;
-	bst_t *new_tree;
+	bst_t *new_tree = NULL;
 
 	for (i = 0; i < size; i++)
 	{
