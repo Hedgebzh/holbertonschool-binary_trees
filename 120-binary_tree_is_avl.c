@@ -96,7 +96,7 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	if (!tree->parent)
+	if (!tree->parent && !tree->left && !tree->right)
 		return (1);
 	return (is_bst_minmax(tree, INT_MIN, INT_MAX) *
 	binary_tree_is_almost_perfect(tree));
