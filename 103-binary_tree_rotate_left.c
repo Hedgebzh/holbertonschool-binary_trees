@@ -6,6 +6,7 @@
  * binary_tree_rotate_left - rotate left
  *
  * @tree: node to rotate
+ * Return: new node
  */
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 {
@@ -19,5 +20,5 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 		tmp->left = tree;
 		tmp->parent = NULL;
 	}
-	return(tmp);
+	return (tmp);
 }
