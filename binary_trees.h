@@ -2,9 +2,12 @@
 #define _BINARY_TREES_H_
 
 #include <stddef.h>
+#include <limits.h>
 
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 #define MIN(a,b) ((a) < (b) ? (a) : (b))
+#define ISMAX(a,b) ((a) == INT_MAX ? (b) : (a))
+#define ISMIN(a,b) ((a) == INT_MIN ? (b) : (a))
 /**
  * struct binary_tree_s - Binary tree node
  *
