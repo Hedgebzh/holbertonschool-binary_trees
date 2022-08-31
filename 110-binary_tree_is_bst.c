@@ -26,10 +26,10 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	if (binary_tree_is_leaf(tree))
 		return (1);
 	if (!tree->left)
-		return (binary_tree_is_full(tree->right));
+		return (binary_tree_is_bst(tree->right));
 	if (!tree->right)
-		return (binary_tree_is_full(tree->left));
+		return (binary_tree_is_bst(tree->left));
 	if ((tree->left->n > tree->n) || (tree->right->n < tree->n))
 		return (0);
-	return (binary_tree_is_full(tree->left) * binary_tree_is_full(tree->right));
+	return (binary_tree_is_bst(tree->left) * binary_tree_is_bst(tree->right));
 }
