@@ -26,7 +26,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	size_t parent = 0, child = 1, i;
 	const size_t tree_size = binary_tree_size(tree);
-	const binary_tree_t *node_array[tree_size];
+	const binary_tree_t *node_array[10000];
 
 	/*fill array with pointer to the nodes in corect order*/
 	if (tree && func)
