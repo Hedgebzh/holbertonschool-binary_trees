@@ -61,7 +61,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 /**
  * binary_tree_is_almost_perfect - Measures if the
- * 		tree is has less than 1 height difference
+ *		tree is has less than 1 height difference
  * @tree: pointer to the root node of the tree to measure the height.
  *
  * Return: if tree is NULL, your function must return 0, else return height.
@@ -78,7 +78,7 @@ int binary_tree_is_almost_perfect(const binary_tree_t *tree)
 
 	for (i = 0; i <= height_t; i++)
 	{
-		for (j = 1,pow2 = 1; j < i; j++)
+		for (j = 1, pow2 = 1; j < i; j++)
 			pow2 *= 2;
 		node_count += pow2;
 	}
@@ -96,6 +96,8 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
+	if (!tree->parent)
+		return (1);
 	return (is_bst_minmax(tree, INT_MIN, INT_MAX) *
 	binary_tree_is_almost_perfect(tree));
 }
