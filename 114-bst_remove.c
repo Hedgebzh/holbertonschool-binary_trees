@@ -42,7 +42,9 @@ bst_t *bst_remove(bst_t *root, int value)
 			node->parent->left = node->left;
 		}
 		node->left->parent = node->parent;
+		successor = node->left;
 		free(node);
+		return (successor);
 	}
 
 	while (successor->left)
@@ -50,4 +52,5 @@ bst_t *bst_remove(bst_t *root, int value)
 	node->n = successor->n;
 	successor->parent->left = NULL;
 	free(successor);
+	return (node);
 }
