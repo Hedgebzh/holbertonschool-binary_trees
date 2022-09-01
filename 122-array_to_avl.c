@@ -99,7 +99,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
-	int i;
+	const size_t i;
 	int dup_array[size];
 
 	for (i = 0; i < size; i ++)
