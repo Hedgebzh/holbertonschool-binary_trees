@@ -12,7 +12,7 @@
  */
 void avl_rec_create(avl_t *tree, int *array, size_t size)
 {
-	size_t j, odd = size % 2;
+	size_t odd = size % 2;
 
 	if (size > 1)
 	{
