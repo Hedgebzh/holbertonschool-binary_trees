@@ -37,7 +37,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *root;
 
-	if (!array || ! size)
+	if (!array || !size)
 		return (NULL);
 	root = binary_tree_node(NULL, array[size / 2 - 1 + (size % 2)]);
 	avl_rec_create(root, array, size);
