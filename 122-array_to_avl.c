@@ -5,49 +5,30 @@
 
 
 /**
- * quick_sort - recursif sorting algorithim based on a pivot
- *
- * @array: array to sort
- * @size: size of array
- * Return: void
- */
-void quick_sort(int *array, size_t size)
+* bubble_sort - sorts an array of integers in ascending order the Bubble sort
+* @array : pointer array
+* @size : size
+*/
+void bubble_sort(int *array, size_t size)
 {
-	int pivot;
-	unsigned int Pos = 0;
-	unsigned int TmpP = 0;
-	int tmp;
+	size_t a, b;
+	int tmp = 0;
 
-	if (!array || size <= 1)
-		return;
-	pivot  = array[size - 1];
-	while (TmpP < size - 1)
+	for (a = 0; a < size; a++)
 	{
-		TmpP = Pos;
-		while (array[TmpP] < pivot)
-			TmpP++;
-		if (TmpP == size - 1)
+		for (b = 0; b < size - 1 - a; b++)
 		{
-			quick_sort(array, size - 1);
-			break;
-		}
-		Pos = TmpP;
-		while (array[TmpP] >= pivot && TmpP < size - 1)
-			TmpP++;
-		if (array[Pos] != array[TmpP])
-		{
-			tmp = array[Pos];
-			array[Pos] = array[TmpP];
-			array[TmpP] = tmp;
+			if (array[b] > array[b + 1])
+			{
+				tmp = array[b + 1];
+				array[b + 1] = array[b];
+				array[b] = tmp;
+				print_array(array, size);
+			}
 		}
 	}
-	if (Pos > 1)
-		quick_sort(array, Pos);
-	while (array[Pos + 1] == pivot)
-		Pos++;
-	if (Pos < size - 2)
-		quick_sort(array + Pos + 1, size - Pos - 1);
 }
+
 
 /**
  * avl_rec_create - recursivly creats an avl frome sorted array
@@ -102,8 +83,8 @@ avl_t *array_to_avl(int *array, size_t size)
 	size_t i;
 	int dup_array[1000];
 
-	for (i = 0; i < size; i ++)
+	for (i = 0; i < size; i++)
 		dup_array[i] = array[i];
-	quick_sort(dup_array, size);
+	bubble_sort(dup_array, size);
 	return (sorted_array_to_avl(dup_array, size));
 }
