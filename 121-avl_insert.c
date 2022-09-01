@@ -11,6 +11,7 @@
  * @array: resulting array
  * @i: starting point in array
  */
+/*
 void avl_to_array(binary_tree_t *tree, int value, int *array, int *i)
 {
 	if (tree)
@@ -64,4 +65,4 @@ avl_t *avl_insert(avl_t **tree, int value)
 		printf("%d, ", array[j]);
 	printf ("\n");
 	return (NULL);
-}
+}*/
