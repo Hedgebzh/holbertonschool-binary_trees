@@ -99,11 +99,11 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *array_to_avl(int *array, size_t size)
 {
-	const size_t i;
-	int dup_array[size];
+	size_t i;
+	int dup_array[1000];
 
 	for (i = 0; i < size; i ++)
-		dup_array[i] = i;
+		dup_array[i] = array[i];
 	quick_sort(dup_array, size);
 	return (sorted_array_to_avl(dup_array, size));
 }
